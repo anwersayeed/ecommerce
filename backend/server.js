@@ -7,7 +7,7 @@ const connectDatabase = require("./config/database")
 dotenv.config({path:"backend/config/config.env"})
 
 // Connecting to databse // this is kept below the config setup above, as it will be used in the below code
-connectDatabase()
+connectDatabase();
 
 
 // CALLBACK FUNCTION
