@@ -1,4 +1,5 @@
 const Product = require("../models/productModel");
+const ErrorHandler = require("../utils/errorHandler");
 
 // Create Product -- Admin
 exports.createProduct = async (req, res, next) =>{
@@ -23,16 +24,13 @@ exports.getAllProducts = async (req, res)=>{
     })
 }
 
-// Get Single Products or Get Product Details // why next?
+// Get Single Products or Get Product Details // why next? : error Handling, callback function 
 exports.getProductDetails = async (req, res, next)=>{
 
     const product = await Product.findById(req.params.id);
 
     if(!product){
-        return res.status(500).json({
-            success:false,
-            message:"Product Not Found"
-        })
+        return next(new ErrorHandler("Product not found", 404));
     }
 
     await product.remove();
