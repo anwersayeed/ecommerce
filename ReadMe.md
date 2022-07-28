@@ -1,0 +1,2 @@
+- Upto this stage, we were handling errors using if and else, but as code size grows, we can't just increase the number of if and else
+    instead, we will create a class for error handling so that all backend errors will be handles by this and we will require a single line to handle error rather than if and else
